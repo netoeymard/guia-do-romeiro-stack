@@ -1,31 +1,17 @@
-
+.search-container {
+    display: flex;
+    flex: 1;
+    padding-bottom: 30%;
+    flex-direction: column;
+    position: relative;
+}
 
 .top-bar {
-    width: 100%;
-    height: 10%;
     background-color: #8E623A;
     /* marrom */
     display: flex;
-    position: absolute;
     justify-content: center;
     top: 0;
     color: #fff;
 }
 
-.welcome-text {
-    position: absolute;
-    top: 55%;
-    text-align: center;
-    color: #EBE4C1;
-}
-
-.welcome-text h2 {
-    margin: 0;
-    font-size: 24px;
-    font-weight: bold;
-}
-.welcome-text p {
-    margin: 0;
-    font-size: 16px;
-    font-weight: 300;
-}
