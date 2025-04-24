@@ -1,21 +1,16 @@
+import { Input } from '@mui/material';
+import './style.css'
+
 export default function SearchPage() {
-    return (
-      <>
-        <div className='container'>
-          <div className='welcome-title'>
-            <div >
-              <img src="/logo.png" alt="" />
-            </div>
-            <h1>
-              VOCÊ QUE <br />
-              ESTÁ <br />
-              Search
-            </h1>
-            <span>
-              Seja bem vindo
-            </span>
+  return (
+    <>
+      <div className=''>
+        <div className='top-bar'>
+          <div className="welcome-text">
+            <Input about='search' placeholder='Pesquisar...' className='search-input' />
           </div>
         </div>
-      </>
-    );
-  }
+      </div>
+    </>
+  );
+}
