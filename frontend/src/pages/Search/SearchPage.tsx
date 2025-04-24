@@ -1,6 +1,7 @@
 import {
   Avatar,
   Box,
+  CircularProgress,
   IconButton,
   InputAdornment,
   List,
@@ -107,7 +108,7 @@ export default function SearchPage() {
           >
             <Box sx={{ p: 2 }}>
               <Typography variant="h6" fontWeight="bold">
-                Onde você vai rezar?
+                Onde você quer ir?
               </Typography>
             </Box>
 
@@ -116,7 +117,9 @@ export default function SearchPage() {
               px: 1,
               flex: 1,
             }}>
-              {places.map((place) => (
+              {isAllPlacesLoading ? (
+                <CircularProgress />
+              ) : places.map((place) => (
                 <ListItem
                   key={place.id}
                   alignItems="flex-start"
