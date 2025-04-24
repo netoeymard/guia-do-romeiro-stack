@@ -11,7 +11,6 @@ const tabConfig = [
   { label: 'Início', icon: <HomeIcon />, path: '/home' },
   { label: 'Localizar', icon: <RoomIcon />, path: '/map' },
   { label: 'Pesquisar', icon: <SearchIcon />, path: '/search' },
-  { label: 'Perfil', icon: <PersonIcon />, path: '/profile' },
 ];
 
 const App = () => {
