@@ -44,8 +44,13 @@ INSTALLED_APPS = [
     'rest_framework',  
     # app customizado
     'core',
-    'drf_yasg'
+    'drf_yasg',
+    'corsheaders'
 
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  # ou a porta que você está usando no front
 ]
 
 MIDDLEWARE = [
