@@ -19,17 +19,24 @@ import { getAllPlaces } from '../../services/places.service';
 import { useMemo, useState } from 'react';
 import { Place } from '../../services/types';
 import { toast } from 'react-toastify';
+import { useLocation } from 'react-router-dom';
 
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
 export default function SearchPage() {
+  const query = useQuery();
+  const categoria = query.get("categoria");
 
   const [isAllPlacesLoading, setIsAllPlacesLoading] = useState(true);
   const [places, setPlaces] = useState<Place[]>([]);
 
   useMemo(() => {
-    _getAllPlaces('');
+
+    _getAllPlaces(categoria || '');
   }
-  , []);
+    , []);
 
   async function _getAllPlaces(search: string) {
     try {
@@ -54,6 +61,7 @@ export default function SearchPage() {
             placeholder="Pesquisar..."
             variant="outlined"
             size="small"
+            defaultValue={categoria}
             onChange={(e) => _getAllPlaces(e.target.value)}
             slotProps={{
               input: {

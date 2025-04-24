@@ -15,6 +15,7 @@ import { useMemo, useState } from 'react';
 import { Place } from '../../services/types';
 import { Avatar } from '@mui/material';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const catIcons = [
     { label: 'Hotéis', icon: <HotelIcon /> },
@@ -28,6 +29,7 @@ const catIcons = [
 ];
 
 export default function HomePage() {
+    const navigate = useNavigate();
     const [isCatLoading, setIsCatLoading] = useState(true);
     const [isMostViewdLoading, setIsMostViewdLoading] = useState(true);
     const [isRecomendedLoading, setIsRecomendedLoading] = useState(true);
@@ -114,7 +116,11 @@ export default function HomePage() {
                                     <CircularProgress />
                                 ) :
                                     categorias.map((categoria, index) => (
-                                        <div key={index} className="category-item">
+                                        <div 
+                                            key={index} 
+                                            className="category-item"
+                                            onClick={() => navigate(`/search?categoria=${encodeURIComponent(categoria.label)}`)}
+                                            >
                                             <div className="category-icon">{categoria.icon}</div>
                                             <span>{categoria.label}</span>
                                         </div>
