@@ -14,6 +14,7 @@ import { getAllCategories, getMostViewd, getRecomended } from '../../services/pl
 import { useMemo, useState } from 'react';
 import { Place } from '../../services/types';
 import { Avatar } from '@mui/material';
+import { toast } from 'react-toastify';
 
 const catIcons = [
     { label: 'Hotéis', icon: <HotelIcon /> },
@@ -57,6 +58,8 @@ export default function HomePage() {
             setCategorias(newCategories);
             setIsCatLoading(false);
         } catch (error) {
+            const errorMessage = error instanceof Error ? error.message : 'Erro ao buscar as localizações.';
+            toast.error(errorMessage)
             setIsCatLoading(false);
         }
 
@@ -70,6 +73,8 @@ export default function HomePage() {
             setMaisVistos(response);
             setIsMostViewdLoading(false);
         } catch (error) {
+            const errorMessage = error instanceof Error ? error.message : 'Erro ao buscar as localizações.';
+            toast.error(errorMessage)
             setIsMostViewdLoading(false);
         }
 
@@ -83,6 +88,8 @@ export default function HomePage() {
             setRecomendados(response);
             setIsRecomendedLoading(false);
         } catch (error) {
+            const errorMessage = error instanceof Error ? error.message : 'Erro ao buscar as localizações.';
+            toast.error(errorMessage)
             setIsRecomendedLoading(false);
         }
 

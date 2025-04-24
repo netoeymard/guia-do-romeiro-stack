@@ -4,8 +4,9 @@ import { BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import RoomIcon from '@mui/icons-material/Room';
 import SearchIcon from '@mui/icons-material/Search';
-import PersonIcon from '@mui/icons-material/Person';
 import AppRoutes from './AppRoutes';
+import {ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const tabConfig = [
   { label: 'Início', icon: <HomeIcon />, path: '/home' },
@@ -28,6 +29,7 @@ const App = () => {
 
   return (
     <>
+      <ToastContainer position="top-right" autoClose={3000} />
       <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
         <AppRoutes />
       </div>
