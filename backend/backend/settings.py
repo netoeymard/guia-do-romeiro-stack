@@ -54,7 +54,7 @@ CORS_ALLOWED_ORIGINS = [
     "api.sideprojects.evolussistemas.com.br",
     "https://guia-do-romeiro-stack-eymard-gomes-netos-projects.vercel.app",
     "https://guia-do-romeiro-stack.vercel.app",
-    "https://guia-do-romeiro-stack-git-main-eymard-gomes-netos-projects.vercel.app/"
+    "https://guia-do-romeiro-stack-git-main-eymard-gomes-netos-projects.vercel.app",
 ]
 
 MIDDLEWARE = [
