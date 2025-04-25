@@ -20,7 +20,6 @@ const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [loading, setLoading] = useState(false);
 
   const currentTab = tabConfig.findIndex(tab => location.pathname.startsWith(tab.path));
   const value = currentTab === -1 ? 0 : currentTab;
@@ -31,8 +30,8 @@ const App = () => {
     if (tab.label === 'Mapa') {
       navigateToAddress(
         'Basílica de São Francisco, Canindé - CE',
-        () => setLoading(true),
-        () => setLoading(false),
+        () => {},
+        () => {},
         (err) => console.error(err)
       )
     } else {
