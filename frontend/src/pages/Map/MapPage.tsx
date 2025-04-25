@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, useMap, useMapEvent } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet-routing-machine';
 import { useEffect, useState } from 'react';
