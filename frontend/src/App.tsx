@@ -8,6 +8,7 @@ import AppRoutes from './AppRoutes';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { navigateToAddress } from './utils/location';
+import { useState } from 'react';
 
 const tabConfig = [
   { label: 'Início', icon: <HomeIcon />, path: '/home' },
@@ -19,14 +20,21 @@ const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(false);
+
   const currentTab = tabConfig.findIndex(tab => location.pathname.startsWith(tab.path));
   const value = currentTab === -1 ? 0 : currentTab;
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
     const tab = tabConfig[newValue];
-  
+
     if (tab.label === 'Mapa') {
-      navigateToAddress('Basílica de São Francisco, Canindé - CE')
+      navigateToAddress(
+        'Basílica de São Francisco, Canindé - CE',
+        () => setLoading(true),
+        () => setLoading(false),
+        (err) => console.error(err)
+      )
     } else {
       navigate(tab.path);
     }

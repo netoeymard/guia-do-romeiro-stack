@@ -32,6 +32,7 @@ export default function SearchPage() {
   const categoria = query.get("categoria");
 
   const [isAllPlacesLoading, setIsAllPlacesLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [places, setPlaces] = useState<Place[]>([]);
 
   useMemo(() => {
@@ -152,13 +153,19 @@ export default function SearchPage() {
                     color="secondary"
                     aria-label="ir para o mapa"
                     onClick={() => {
-                      navigateToAddress(`${place.street}, ${place.number} - ${place.neighborhood}, ${place.city} - ${place.state}`)
+                      navigateToAddress(
+                        `${place.name} ${place.street}, ${place.number} - ${place.neighborhood}, ${place.city} - ${place.state}`,
+                        () => setLoading(true),
+                        () => setLoading(false),
+                        (err) => console.error(err)
+                      )
                     }}
                     sx={{
                       width: '40px',
                       alignSelf: 'center',
                       justifySelf: 'end',
                       float: 'right',
+                      opacity: loading ? 0.5 : 1,
                       textAlign: 'end',
                     }}
                   >

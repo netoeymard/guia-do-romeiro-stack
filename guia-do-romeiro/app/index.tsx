@@ -46,7 +46,7 @@ export default function Index() {
       >
         <WebView
           ref={webviewRef}
-          source={{ uri: "http://localhost:5173" }} // 👈 Replace with your URL
+          source={{ uri: "https://guia-do-romeiro-stack.vercel.app" }} // 👈 Replace with your URL
           style={{ flex: 1 }}
           onLoadEnd={() => {
             setLoading(false);
