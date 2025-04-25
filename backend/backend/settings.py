@@ -51,6 +51,10 @@ INSTALLED_APPS = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # ou a porta que você está usando no front
+    "api.sideprojects.evolussistemas.com.br",
+    "https://guia-do-romeiro-stack-eymard-gomes-netos-projects.vercel.app",
+    "https://guia-do-romeiro-stack.vercel.app",
+    "https://guia-do-romeiro-stack-git-main-eymard-gomes-netos-projects.vercel.app/"
 ]
 
 MIDDLEWARE = [
