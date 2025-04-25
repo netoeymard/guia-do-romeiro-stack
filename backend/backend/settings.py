@@ -25,6 +25,12 @@ SECRET_KEY = "django-insecure-%=pkqj!(whqo4!96@@uzx#t1sxb1w#8tt+ee6(vlj*pijz1ry@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://api.sideprojects.evolussistemas.com.br',
+    'http://api.sideprojects.evolussistemas.com.br',
+]
+
+
 ALLOWED_HOSTS = [
     'api.sideprojects.evolussistemas.com.br', 
     'localhost', 
