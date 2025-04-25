@@ -139,7 +139,11 @@ export default function HomePage() {
                                     <CircularProgress />
                                 ) :
                                     maisVistos.map((place, index) => (
-                                        <div key={index} className="category-item">
+                                        <div 
+                                            key={index} 
+                                            className="category-item"
+                                            onClick={() => navigate(`/search?categoria=${encodeURIComponent(place.name)}`)}
+                                        >
                                             <Avatar
                                                 variant="rounded"
                                                 src={place?.photos[0].photo}
@@ -162,7 +166,11 @@ export default function HomePage() {
                                     <CircularProgress />
                                 ) :
                                     recomendados.map((place, index) => (
-                                        <div key={index} className="category-item">
+                                        <div 
+                                            key={index} 
+                                            className="category-item"
+                                            onClick={() => navigate(`/search?categoria=${encodeURIComponent(place.name)}`)}
+                                        >
                                             <Avatar
                                                 variant="rounded"
                                                 src={place?.photos[0].photo}
