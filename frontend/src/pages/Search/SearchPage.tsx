@@ -143,7 +143,7 @@ export default function SearchPage() {
                     secondary={
                       <>
                         <Typography variant="body2" color="text.secondary">
-                          {`${!Number(place.number) ? place.street: ''}, ${place.number} - ${place.neighborhood}, ${place.city} - ${place.state}`}
+                          {`${place.street}, ${place.number} - ${place.neighborhood}, ${place.city} - ${place.state}`}
                         </Typography>
                       </>
                     }
@@ -154,7 +154,7 @@ export default function SearchPage() {
                     aria-label="ir para o mapa"
                     onClick={() => {
                       navigateToAddress(
-                        `${!Number(place.number) ? place.street: ''} ${place.street}, ${place.number} - ${place.neighborhood}, ${place.city} - ${place.state}`,
+                        `${!Number(place.number) ? place.name: ''} ${place.street}, ${place.number} - ${place.neighborhood}, ${place.city} - ${place.state}`,
                         () => setLoading(true),
                         () => setLoading(false),
                         (err) => console.error(err)
