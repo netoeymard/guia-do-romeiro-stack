@@ -25,7 +25,14 @@ SECRET_KEY = "django-insecure-%=pkqj!(whqo4!96@@uzx#t1sxb1w#8tt+ee6(vlj*pijz1ry@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'api.sideprojects.evolussistemas.com.br', 
+    'localhost', 
+    '127.0.0.1',
+    'guia-do-romeiro-stack-eymard-gomes-netos-projects.vercel.app',
+    'guia-do-romeiro-stack.vercel.app',
+    'guia-do-romeiro-stack-git-main-eymard-gomes-netos-projects.vercel.app',
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
