@@ -5,12 +5,13 @@ import HomeIcon from '@mui/icons-material/Home';
 import RoomIcon from '@mui/icons-material/Room';
 import SearchIcon from '@mui/icons-material/Search';
 import AppRoutes from './AppRoutes';
-import {ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { navigateToAddress } from './utils/location';
 
 const tabConfig = [
   { label: 'Início', icon: <HomeIcon />, path: '/home' },
-  { label: 'Localizar', icon: <RoomIcon />, path: '/map' },
+  { label: 'Mapa', icon: <RoomIcon />, path: '/map' },
   { label: 'Pesquisar', icon: <SearchIcon />, path: '/search' },
 ];
 
@@ -22,9 +23,14 @@ const App = () => {
   const value = currentTab === -1 ? 0 : currentTab;
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
-    navigate(tabConfig[newValue].path);
+    const tab = tabConfig[newValue];
+  
+    if (tab.label === 'Mapa') {
+      navigateToAddress('Basílica de São Francisco, Canindé - CE')
+    } else {
+      navigate(tab.path);
+    }
   };
-
   const shouldShowNavigation = location.pathname !== '/';
 
   return (

@@ -21,6 +21,7 @@ import { useMemo, useState } from 'react';
 import { Place } from '../../services/types';
 import { toast } from 'react-toastify';
 import { useLocation } from 'react-router-dom';
+import { navigateToAddress } from '../../utils/location';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -150,6 +151,9 @@ export default function SearchPage() {
                     edge="end"
                     color="secondary"
                     aria-label="ir para o mapa"
+                    onClick={() => {
+                      navigateToAddress(`${place.street}, ${place.number} - ${place.neighborhood}, ${place.city} - ${place.state}`)
+                    }}
                     sx={{
                       width: '40px',
                       alignSelf: 'center',
