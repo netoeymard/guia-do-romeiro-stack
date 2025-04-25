@@ -8,7 +8,6 @@ import AppRoutes from './AppRoutes';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { navigateToAddress } from './utils/location';
-import { useState } from 'react';
 
 const tabConfig = [
   { label: 'Início', icon: <HomeIcon />, path: '/home' },
