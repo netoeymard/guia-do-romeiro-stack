@@ -1,8 +1,9 @@
-import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMap, useMapEvent } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet-routing-machine';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import './styles.css'; 
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -25,6 +26,24 @@ function Routing({ from, to }: { from: L.LatLng, to: L.LatLng }) {
   }, [from, to, map]);
 
   return null;
+}
+
+function LocateButton({ location }: { location: L.LatLng | null }) {
+  const map = useMap();
+
+  const handleClick = () => {
+    if (location) {
+      map.flyTo(location, 15); // voa até a localização com zoom 15
+    } else {
+      alert("Localização atual não disponível.");
+    }
+  };
+
+  return (
+    <button className="locate-button" onClick={handleClick}>
+      📍
+    </button>
+  );
 }
 
 export default function MapPage() {
@@ -62,10 +81,10 @@ export default function MapPage() {
     getCoordinatesFromAddress();
   }, [endereco]);
 
-  const center = userLocation || L.latLng(-3.722, -38.5); // fallback inicial (ex: Fortaleza-CE)
+  const center = userLocation || L.latLng(-3.722, -38.5); // fallback inicial
 
   return (
-    <div style={{ height: '100vh', width: '100%' }}>
+    <div className="map-wrapper">
       <MapContainer center={center} zoom={13} scrollWheelZoom style={{ height: '100%', width: '100%' }}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -74,6 +93,7 @@ export default function MapPage() {
         {userLocation && <Marker position={userLocation} />}
         {destination && <Marker position={destination} />}
         {userLocation && destination && <Routing from={userLocation} to={destination} />}
+        <LocateButton location={userLocation} />
       </MapContainer>
     </div>
   );

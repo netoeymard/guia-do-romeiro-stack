@@ -1,0 +1,20 @@
+.map-wrapper {
+    position: relative;
+    height: calc(100vh - 56px - 56px); /* ajuste para caber entre header e bottom nav */
+    width: 100%;
+  }
+  
+  .locate-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    padding: 10px 12px;
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
