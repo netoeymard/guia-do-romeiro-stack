@@ -28,6 +28,15 @@ const WelcomePage = () => {
         </span>
       </div>
 
+      <div className='uece-block'>
+        <img className='uece-logo' src="/image.png" alt="" />
+        <div className='uece-fecisc'>
+          <span className='fecisc-title'>FECISC</span>
+          <span>Faculdade de Educação e Ciências</span>
+          <span>Integradas do Sertão de Canindé</span>
+        </div>
+      </div>
+
       <div>
           
       <Button variant="contained" color="primary" onClick={handleRedirect}>
